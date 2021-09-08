@@ -31,4 +31,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: sordfish/go-cf-auth:latest,sordfish/go-cf-auth:0.0.2
+          tags: sordfish/go-cf-auth:latest,sordfish/go-cf-auth:0.0.3
