@@ -51,6 +51,20 @@ func VerifyToken(next http.Handler) http.Handler {
 	return http.HandlerFunc(fn)
 }
 
+func CheckReadiness(next http.Handler) http.Handler {
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("ready"))
+	}
+	return http.HandlerFunc(fn)
+}
+
+func CheckLiveness(next http.Handler) http.Handler {
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("ok"))
+	}
+	return http.HandlerFunc(fn)
+}
+
 func MainHandler() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("welcome"))
@@ -70,5 +84,7 @@ func main() {
 	}
 
 	http.Handle("/", VerifyToken(MainHandler()))
+	http.Handle("/livez", CheckLiveness(MainHandler()))
+	http.Handle("/readyz", CheckReadiness(MainHandler()))
 	http.ListenAndServe(":3000", nil)
 }
