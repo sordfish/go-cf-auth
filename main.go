@@ -59,12 +59,12 @@ func MainHandler() http.Handler {
 
 func main() {
 
-	if policyAUD == "" {
+	if policyAUD == "" || policyAUD == "NOTSET" {
 		fmt.Println("CF_POLICY_AUD env var not set")
 		os.Exit(1)
 	}
 
-	if teamDomain == "" {
+	if teamDomain == "" || teamDomain == "NOTSET" {
 		fmt.Println("CF_TEAMDOMAIN env var not set")
 		os.Exit(1)
 	}
