@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: go-cf-auth
+    meta.helm.sh/release-namespace: cctv
+  creationTimestamp: "2021-09-08T16:40:00Z"
+  labels:
+    app.kubernetes.io/instance: go-cf-auth
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: go-cf-auth
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: go-cf-auth-0.1.0
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:meta.helm.sh/release-name: {}
+          f:meta.helm.sh/release-namespace: {}
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/managed-by: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/version: {}
+          f:helm.sh/chart: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2021-09-08T16:40:00Z"
+  name: go-cf-auth
+  namespace: cctv
+  resourceVersion: "12220042"
+  uid: cdae43fd-ec3c-437a-af6e-2061d1de4a2b
+spec:
+  clusterIP: 10.43.229.226
+  clusterIPs:
+  - 10.43.229.226
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app.kubernetes.io/instance: go-cf-auth
+    app.kubernetes.io/name: go-cf-auth
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

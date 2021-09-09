@@ -47,9 +47,9 @@ ingress:
     kubernetes.io/ingress.class: traefik
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: cctv.k8s.space
+    - host: go-cf-auth.local
       paths:
-      - path: /cheese
+      - path: /
 
   tls: []
   #  - secretName: chart-example-tls
